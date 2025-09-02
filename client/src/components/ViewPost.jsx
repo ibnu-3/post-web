@@ -7,11 +7,11 @@
         const [post, setPost] = useState(null);
         const [loading, setLoading] = useState(true);
         const [error, setError] = useState(null);
-
+const APIURL= 'https://musical-space-couscous-pjq6jqr9qqvp3rvr4-8080.app.github.dev'
         useEffect(() => {
             const fetchPost = async () => {
                 try {
-                    const response = await axios.get(`/api/posts/${id}`); // Replace with your API endpoint
+                    const response = await axios.get(`${APIURL}/api/posts/${id}`); // Replace with your API endpoint
                     setPost(response.data);
                 } catch (err) {
                     setError(err.message || 'Failed to load post');

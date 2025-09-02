@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { logout } from '../slices/authSlice';
 import { getPosts } from '../slices/postSlice';
 import { toast } from 'react-toastify';
-
+import { MdDelete, MdModeEdit, MdRemoveRedEye } from "react-icons/md";
 const Home = () => {
     const navigate = useNavigate();
     const dispatch = useDispatch();
@@ -49,13 +49,17 @@ const Home = () => {
                 </button>
             </div>
             <p className='mt-10 text-xl font-bold '>Welcome, {user?.name.toUpperCase()}!</p>
-            <h2 className="text-2xl font-semibold mt-6">Posts</h2>
+            <h2 className="text-2xl font-semibold my-6">Posts</h2>
             {posts.length > 0 ? (
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                     {posts.map((post) => (
-                        <div key={post._id} className="bg-white shadow-md rounded p-4">
+                        <div key={post._id} className="bg-white shadow-md hover:drop-shadow-lg rounded px-4 py-2 flex flex-col gap-3">
                             <h3 className="text-xl font-semibold">{post.title}</h3>
                             <p className="text-gray-700">{post.content.substring(0, 100)}...</p>
+                            <div className='flex justify-start items-center '>
+                                <Link to={`/edit-post/${post._id}`} className='rounded text-blue-500 px-4 '><MdModeEdit/></Link>
+                                <Link to={`/view-post/${post._id}`} className='rounded text-cyan-500 px-4 '><MdRemoveRedEye /></Link>
+                            </div>
                         </div>
                     ))}
                 </div>

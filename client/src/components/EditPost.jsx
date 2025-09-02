@@ -13,12 +13,12 @@
         const navigate = useNavigate();
         const { isLoading, isError, message } = useSelector((state) => state.posts);
         const [loadingPost, setLoadingPost] = useState(true);
-
+const APIURL= 'https://musical-space-couscous-pjq6jqr9qqvp3rvr4-8080.app.github.dev'
         useEffect(() => {
             const fetchPost = async () => {
                 setLoadingPost(true);
                 try {
-                    const response = await axios.get(`/api/posts/${id}`); // Replace with your API endpoint
+                    const response = await axios.get(`${APIURL}/api/posts/${id}`); // Replace with your API endpoint
                     setTitle(response.data.title);
                     setContent(response.data.content);
                 } catch (error) {
