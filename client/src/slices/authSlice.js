@@ -1,7 +1,7 @@
     import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
     import axios from 'axios';
 
-    const API_URL = '/api/users';
+    const API_URL = 'https://musical-space-couscous-pjq6jqr9qqvp3rvr4-8080.app.github.dev/api/users';
 
     // Get user from localStorage
     const user = localStorage.getItem('user') ? JSON.parse(localStorage.getItem('user')) : null;
